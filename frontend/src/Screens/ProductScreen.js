@@ -92,7 +92,8 @@ function ProductScreen() {
                 <ListGroup.Item>
                   <Row>
                     <Col className="mt-2">Quantity</Col>
-                    <Col xs='auto'><Form.Control as='select' value={qty} onChange={(e) => setQty(e.target.value)}>
+                    <Col xs='auto'>
+                      <Form.Control as='select' value={qty} onChange={(e) => setQty(e.target.value)}>
                       {
                         [...Array(product.countInStock).keys()].map((x) => (
                           <option key={x + 1} value={x + 1}>
@@ -100,7 +101,8 @@ function ProductScreen() {
                           </option>
                         ))
                       }
-                      </Form.Control></Col>
+                      </Form.Control>
+                      </Col>
                   </Row>
                 </ListGroup.Item>
               )}
