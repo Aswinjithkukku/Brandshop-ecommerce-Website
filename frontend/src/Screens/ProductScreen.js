@@ -2,16 +2,14 @@ import React, { useEffect,useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Button, Form } from "react-bootstrap";
 import Rating from "../components/Rating";
-// import axios from 'axios';
-// import products from '../products'
+
 import { useDispatch, useSelector } from "react-redux";
 import { listProductDetails } from "../actions/ProductActions";
 
 function ProductScreen() {
   const params = useParams();
   const navigate = useNavigate()
-  // const product = products.find((p) => p._id === params.id)
-  // const [product, setProduct] = useState([])
+
 
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails);
@@ -20,20 +18,15 @@ function ProductScreen() {
   const [qty,setQty] = useState(1)
 
   useEffect(() => {
-    // async function fetchProduct() {
-    //   const {data} = await axios.get(`/api/products/${params.id}`)
-    //   setProduct(data)
-    // }
-    // fetchProduct()
+ 
     dispatch(listProductDetails(params.id));
   }, [dispatch,params.id]);
 
   const addToHandlerEvent = () =>{
-    // console.log('add',params.id)
+
     navigate(`/cart/${params.id}?qty=${qty}`)
   }
 
-  // const product = {}
   return (
     <div>
       <Link to="/" className="btn btn-light py-2 my-2">
@@ -46,7 +39,7 @@ function ProductScreen() {
           </span>
         </div>
       ) : error ? (
-        { error }
+       <h4> { error } </h4>
       ) : (
         <Row>
           <Col md={6}>
