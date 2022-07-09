@@ -24,7 +24,6 @@ function HomeScreen() {
   return (
     <div>
       {!keyword && <ProductCarousel/>}
-
       <h1>Latest Products</h1>
       {loading ? (
         <div className="loader-wrapper">
