@@ -7,13 +7,13 @@ import { listProductDetails, updateProduct } from "../actions/ProductActions";
 import { PRODUCT_UPDATE_RESET } from "../constants/ProductConstants";
 
 function ProductEditScreen() {
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
-  const [image, setImage] = useState("");
-  const [brand, setBrand] = useState("");
-  const [category, setCategory] = useState("");
+  const [image, setImage] = useState('');
+  const [brand, setBrand] = useState('');
+  const [category, setCategory] = useState('');
   const [countInStock, setCountInStock] = useState(0);
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState(0);
   const [uploading, setUploading] = useState(false);
 
   const navigate = useNavigate();
@@ -72,7 +72,7 @@ function ProductEditScreen() {
     e.preventDefault();
     const file = e.target.files[0]
     const formData = new FormData()
-    formData.append('image',file)
+    formData.append('image-upload',file)
     formData.append('product_id',productId)
     setUploading(true)
     try{
@@ -146,14 +146,8 @@ function ProductEditScreen() {
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
                   ></Form.Control>
-                   {/* <Form.File
-                    id="image-file"
-                    label="Choose File"
-                    custom='true'
-                    onChange={uploadFileHandler}
-                  ></Form.File> */}
                 </Form.Group>  
-                  <Form.Group controlId="image" className="mb-3">
+                  <Form.Group controlId="image-upload" className="mb-3">
                   <Form.Control 
                   type="file"
                   // id="image-file"
@@ -161,6 +155,7 @@ function ProductEditScreen() {
                   custom='true'
                   onChange={uploadFileHandler} />
                 </Form.Group> 
+                {uploading && <h6  className="text-warning">Loading.....</h6>}
 
                 <Form.Group className="my-4" controlId="brand">
                   <Form.Label>Brand</Form.Label>

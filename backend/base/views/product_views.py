@@ -62,7 +62,6 @@ def createProduct(request):
 def updateProduct(request,pk):
     data = request.data
     product = Product.objects.get(_id=pk)
-
     product.name = data['name']
     product.price = data['price']
     product.brand = data['brand']
@@ -86,7 +85,7 @@ def uploadImage(request):
     data = request.data
     product_id = data['product_id']
     product = Product.objects.get(_id=product_id)
-    product.image = request.FILES.get('image')
+    product.image = request.FILES.get('image-upload')
     product.save()
     return Response('Image was Uploaded')
 
