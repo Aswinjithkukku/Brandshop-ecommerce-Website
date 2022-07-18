@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "corsheaders",
 
     'base.apps.BaseConfig',
+    'storages',
 ]
 
 REST_FRAMEWORK = {
@@ -183,3 +184,13 @@ MEDIA_ROOT = 'static/images'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+
+AWS_ACCESS_KEY_ID = 'AKIAQDMRA3SQJZP3S45I'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'brandshop-bucket'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+AWS_QUERYSTRING_AUTH = False
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

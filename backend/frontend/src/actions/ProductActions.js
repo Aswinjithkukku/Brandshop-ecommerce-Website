@@ -43,7 +43,7 @@ export const listProducts = (keyword='') => async (dispatch) => {
     dispatch({
       type: PRODUCT_LIST_FAIL,
       payload:
-        error.response && error.response.data.drtail
+        error.response && error.response.data.detail
           ? error.response.data.detail
           : error.message,
     });
