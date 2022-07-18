@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +27,7 @@ SECRET_KEY = 'django-insecure-%*p1_or&$vaqwe0id)ulxkb2@h)4w(+w2hs4=c5_uh+7r!!t-p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['brandshopecom.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -186,8 +187,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 
 
-AWS_ACCESS_KEY_ID = 'AKIAQDMRA3SQJZP3S45I'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'brandshop-bucket'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
